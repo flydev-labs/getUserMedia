@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript Webcam</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <style media="screen">
+            body {
+                background-color: #252527;
+                color: white;
+                text-align: center;
+                font-size: 2rem;
+                font-family: 'Roboto', sans-serif;
+            }
+            h1 {
+                margin: 40px;
+            }
+            #play {
+                width: 70%;
+                height: auto;
+                border: groove 20px #E8D04A;
+                border-radius: 10px;
+                box-shadow: 0 0 50px #999;
+            }
+            a {
+                color: white;
+                text-decoration: underline;
+            }
+            a:hover {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>JavaScript Webcam</h1>
+
+        <video id="play"></video>
+
+        <p><a href="https://github.com/flydev-labs/getUserMedia" target="_blank">View Source</a></p>
+
+        <script type="text/javascript">
+            const video = document.querySelector('#play');
+            async function go() {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+            }
+            go();
+        </script>
+
+    </body>
+</html>
